@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      label {  display: block; }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Person</h1>
+    <form id="edit_form" method="POST" action="./">
+      <label>Password: <input type="password" name="password"></label>
+      <label>Unknown: <input type="unknown" name="unknown"></label>
+      <label>Full Name: <input type="text" name="full_name"></label>
+      <label>Age: <input type="number" min="0" name="age"></label>
+      <label><input type="radio" name="gender" value="m"> Male</label>
+      <label><input type="radio" name="gender" value="f"> Female</label>
+      <label>Region: 
+        <select name="region">
+          <option>America</option>
+          <option>Europe</option>
+          <option value="Australia">Oceania</option>
+        </select>
+      </label>
+      <label>Foods:
+        <select name="foods[]" multiple>
+          <option>Pizza</option>
+          <option>Burger</option>
+          <option>Chips</option>
+        </select>
+      </label>
+      <textarea name="hobbies"></textarea>
+      <label>Birthday: <input type="date" name="birthday"></label>
+      <label>Breakfast: <input type="datetime" name="breakfast"></label>
+      <label>Dinner: <input type="datetime-local" name="dinner"></label>
+      <label>Favourite Week: <input type="week" name="favourite_week"></label>
+      <label>Favourite Month: <input type="month" name="favourite_month"></label>
+      <label><input type="checkbox" name="colours[]" value="red">Red</label>
+      <label><input type="checkbox" name="colours[]" value="green">Green</label>
+      <label><input type="checkbox" name="colours[]" value="blue">Blue</label>
+      <label><input type="checkbox" name="subscribe" value="yes"> Subscribe</label>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+  </body>
+</html>
