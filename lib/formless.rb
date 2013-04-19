@@ -2,7 +2,7 @@ require 'date'
 require 'nokogiri'
 
 class Formless
-  
+  VERSION = '0.1'
   DATE_FORMAT = '%d/%m/%Y'
   DATETIME_FORMAT = '%d/%m/%Y %l:%M%P'
   
