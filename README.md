@@ -10,34 +10,40 @@ In Action
 ---------
 Install it...
 
-    gem install formless
+```console
+$ gem install formless
+```
 
 Take some HTML...
 
-    <!DOCTYPE html>
-    <html>
-      <body>
-        <h1>Edit Person</h1>
-        <form id="edit_form" method="POST" action="./">
-          <input type="text" name="full_name" />
-          <input type="number" min="0" name="age" />
-          <label><input type="radio" name="gender" value="m"> Male</label>
-          <label><input type="radio" name="gender" value="f"> Female</label>
-          <select name="region">
-            <option>America</option>
-            <option>Europe</option>
-            <option>Oceania</option>
-          </select>
-          <input type="submit" value="Submit" />
-        </form>
-      </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Edit Person</h1>
+    <form id="edit_form" method="POST" action="./">
+      <input type="text" name="full_name" />
+      <input type="number" min="0" name="age" />
+      <label><input type="radio" name="gender" value="m"> Male</label>
+      <label><input type="radio" name="gender" value="f"> Female</label>
+      <select name="region">
+        <option>America</option>
+        <option>Europe</option>
+        <option>Oceania</option>
+      </select>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
+```
 
 And populate it...
 
-    selector = '#edit_form'
-    values = {name: 'Jeffrey', age: 29, gender: 'm', region: 'Europe'}
-    FormPopulator.new('<html>...</html>', selector).populate!(values).to_s #=> <!DOCTYPE html><html> ... </html>
+```ruby
+selector = '#edit_form'
+values = {name: 'Jeffrey', age: 29, gender: 'm', region: 'Europe'}
+FormPopulator.new('<html>...</html>', selector).populate!(values).to_s #=> <!DOCTYPE html><html> ... </html>
+```
 
 
 How It Works
@@ -49,15 +55,19 @@ Performance
 -----------
 Convenience is prioritised over performance; there are many less convenient but better performing solutions if that's your priority. With that said, there are ways to optimise your use of Formless. The most obvious optimisation is to re-use your Formless or Nokogiri NodeSet instances, to save re-parsing your HTML:
 
-    @form ||= Formless.new('...')
-    @form.populate({name: 'Bill', age: 31}).to_s #=> <!DOCTYPE html><html> ... </html>
+```ruby
+@form ||= Formless.new('...')
+@form.populate({name: 'Bill', age: 31}).to_s #=> <!DOCTYPE html><html> ... </html>
+```
 
 Formless also provides two complementary `populate` methods. `populate!` modifies the nodeset associated with the Formless instance, whilst `populate` works on a copy of that nodeset. Where performance is important, `populate!` should be used. It's important to note however that you must explicitly set a field to a value for that field to be reset, so extra care must be taken:
 
-    @form ||= Formless.new('...')
-    @form.populate!({name: 'Bill', age: 31})
-    @form.populate!({name: 'John'}) #=> Age is still set to 31
-    @form.populate!({name: 'John', age: nil}) #=> Age is now set to empty
+```ruby
+@form ||= Formless.new('...')
+@form.populate!({name: 'Bill', age: 31})
+@form.populate!({name: 'John'}) #=> Age is still set to 31
+@form.populate!({name: 'John', age: nil}) #=> Age is now set to empty
+```
 
 
 Comprehensive
