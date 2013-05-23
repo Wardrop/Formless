@@ -24,8 +24,8 @@ Take some HTML...
     <form id="edit_form" method="POST" action="./">
       <input type="text" name="full_name" />
       <input type="number" min="0" name="age" />
-      <label><input type="radio" name="gender" value="m"> Male</label>
-      <label><input type="radio" name="gender" value="f"> Female</label>
+      <input type="radio" name="gender" value="m" id="gender_m"> <label for="gender_m">Male</label>
+      <input type="radio" name="gender" value="f" id="gender_f"> <label for="gender_f">Female</label>
       <select name="region">
         <option>America</option>
         <option>Europe</option>
