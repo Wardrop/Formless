@@ -9,7 +9,7 @@ Gem::Specification.new 'formless', Formless::VERSION do |s|
   s.homepage          = "http://github.com/wardrop/Formless"
   s.files             = Dir.glob(`git ls-files`.split("\n") - %w[.gitignore])
   s.test_files        = Dir.glob('spec/**/*_spec.rb')
-  s.rdoc_options      = %w[--line-numbers --inline-source --title Scorched --encoding=UTF-8]
+  s.rdoc_options      = %w[--line-numbers --inline-source --title Formless --encoding=UTF-8]
 
   s.required_ruby_version = '>= 1.9.3'
 
