@@ -82,3 +82,7 @@ Formless is intended to provide comprehensive support for HTML5 forms. Any contr
 * Textarea fields
 * Select fields, including multi-select fields
 * Common-name fields, such as for use with the array idiom, e.g. name="favourites[]"
+
+Help and Support
+----------------
+If you find what may be a bug, please raise it as an issue on the Github project page. If you want to contact me with questions or for any other reason, please refer to the contact details for the [Scorched](https://github.com/wardrop/Scorched) project which I also maintain. 
